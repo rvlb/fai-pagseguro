@@ -14,9 +14,13 @@
     </li>
     {% endfor %}
 </ul>
-<form method="POST">
+<form id="cart-form" method="POST">
     {% csrf_token %}
-    <button type="submit" name="credit-card">Pagar com cartão de crédito</button>
+    <button type="submit" id="credit-card-btn" name="credit-card">Pagar com cartão de crédito</button>
     <button type="submit" name="bank-slip">Pagar com boleto</button>
 </form>
+{% endblock %}
+{% block script %}
+<script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+<script src="{% static 'script.js' %}"></script>
 {% endblock %}
