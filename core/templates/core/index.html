@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<ul>
+    {% for p in products %}
+    <li>
+        <div>
+            <p>{{ p.name }} => R${{ p.price }}</p>
+            <div>
+                <a href="{% url 'core:add_cart' %}?id={{ p.id }}">Adicionar ao carrinho</a>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

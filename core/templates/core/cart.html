@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+{% load carton_tags %}
+{% get_cart as cart %}
+{% block content %}
+<ul>
+    {% for item in cart.items %}
+    <li>
+        <div>
+            <p>{{ item.product.name }}</p>
+            <p>Quantidade: {{ item.quantity }}</p>
+            <p>Total: R${{ item.subtotal }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" name="credit-card">Pagar com cartão de crédito</button>
+    <button type="submit" name="bank-slip">Pagar com boleto</button>
+</form>
+{% endblock %}
