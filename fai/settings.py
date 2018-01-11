@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'widget_tweaks',
-    'carton'
+    'carton',
+    'pagseguro',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+PAGSEGURO_EMAIL = config('PAGSEGURO_EMAIL')
+PAGSEGURO_TOKEN = config('PAGSEGURO_TOKEN')
+PAGSEGURO_SANDBOX = True
+PAGSEGURO_LOG_IN_MODEL = False
