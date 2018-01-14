@@ -17,7 +17,7 @@
 <form id="cart-form" method="POST">
     {% csrf_token %}
     <button type="submit" id="credit-card-btn" name="credit-card">Pagar com cartão de crédito</button>
-    <button type="submit" name="bank-slip">Pagar com boleto</button>
+    <button type="submit" id="bank-slip-btn" name="bank-slip">Pagar com boleto</button>
 </form>
 {% endblock %}
 {% block script %}
